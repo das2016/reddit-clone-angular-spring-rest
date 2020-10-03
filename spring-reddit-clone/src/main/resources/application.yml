@@ -1,1 +1,20 @@
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+  application:
+    name: SPRING-REDDIT-CLONE
 
+  mail:
+    host: smtp.mailtrap.io
+    port: 2525
+    username: 305e5d322e7660
+    password: 4eee2dc221f812
+    protocol: smtp
+
+jwt:  
+  expiration: 
+    time: 100000000000
