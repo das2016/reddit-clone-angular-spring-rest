@@ -1,0 +1,51 @@
+<div class="login-section">
+    <div class="row justify-content-center">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header" style="text-align: center"><h4>Connexion</h4></div>
+                <div class="card-body">
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
+                        <div class="form-group row">
+                            <label for="user_name" class="col-md-4 col-form-label text-md-right">Nom utilisateur</label>
+                            <div class="col-md-6">
+                                <input type="text" id="user_name" class="form-control" [formControlName]="'username'" name="user_name" required
+                                    autofocus>
+                                    <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched" class="input-error-message">
+                                        L'utilisateur est obligatoire.
+                                    </span>   
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Mot de passe</label>
+                            <div class="col-md-6">
+                                <input type="password" id="password" class="form-control" [formControlName]="'password'" name="password" required>
+                                <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="input-error-message">
+                                    Le mot de passe est obligatoie.
+                                </span> 
+                            </div>
+                        </div>
+
+                        <span class="col-md-6 offset-md-4">
+                            <button type="submit" class="login">
+                                Se Connecter
+                            </button>
+                            
+                        </span>   
+                        <span class="col-md-6 offset-md-4">
+                        <span style="padding-left: 15px">nouveau utilisateur ? <a routerLink="/signup">Inscription</a></span>
+                        </span>
+                        <div class="login-failed" *ngIf='this.isError === true'>
+                             <p class="login-failed-text">
+                                Échec de la connexion. Veuillez vérifier vos informations d'identification et réessayer.</p>   
+                        </div>                     
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
